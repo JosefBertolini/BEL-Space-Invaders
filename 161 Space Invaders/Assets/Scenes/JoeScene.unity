@@ -199,6 +199,21 @@ PrefabInstance:
       propertyPath: m_isInputParsingRequired
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 2001090246, guid: 5deb0be687f6fc840bf91b26cca4a7ba, type: 3}
+      propertyPath: enemyPrefab1
+      value: 
+      objectReference: {fileID: 9007505122915658114, guid: 656bb6bb27114e2479b55475c4180f7a,
+        type: 3}
+    - target: {fileID: 2001090246, guid: 5deb0be687f6fc840bf91b26cca4a7ba, type: 3}
+      propertyPath: enemyPrefab2
+      value: 
+      objectReference: {fileID: 2792143420343041173, guid: 191ebb96e5a7ab24fba00ddd718e10dc,
+        type: 3}
+    - target: {fileID: 2001090246, guid: 5deb0be687f6fc840bf91b26cca4a7ba, type: 3}
+      propertyPath: enemyPrefab3
+      value: 
+      objectReference: {fileID: 37940919722925894, guid: a208b4705f97d764e936b6a25fa6b2cb,
+        type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5deb0be687f6fc840bf91b26cca4a7ba, type: 3}
 --- !u!1 &1204561663
