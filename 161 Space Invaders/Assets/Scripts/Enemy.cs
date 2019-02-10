@@ -11,7 +11,7 @@ public class Enemy : MonoBehaviour
     private Vector2 projectilePlacement;
     public GameObject enemyProjectile;
 
-    public float speed = 1.5f;
+    public float speed;
 
     private void Awake()
     {
