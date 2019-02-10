@@ -21,8 +21,10 @@ public class EnemyProjectile : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        // CHECK FOR PLAYER PROJ AND ENEMY
-        // INVOKE EVENT FOR DAMAGE
-        Destroy(this.gameObject);
+        if ( ! collision.collider.CompareTag("PlayerProjectile") && ! collision.collider.CompareTag("Enemy") )
+        {
+            Destroy(this.gameObject);
+        }
+
     }
 }

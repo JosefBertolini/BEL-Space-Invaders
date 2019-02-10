@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 4129486332471157270}
   m_Layer: 0
   m_Name: EnemyProjectile
-  m_TagString: Untagged
+  m_TagString: EnemyProjectile
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -46,6 +46,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 18845062284bfb649ae0995592306c00, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  speed: 9
 --- !u!50 &777978291590187512
 Rigidbody2D:
   serializedVersion: 4
