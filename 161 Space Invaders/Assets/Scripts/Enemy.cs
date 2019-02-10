@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class Enemy : MonoBehaviour
 {
@@ -13,12 +14,12 @@ public class Enemy : MonoBehaviour
     private void Awake()
     {
         m_rigidbody = this.GetComponent<Rigidbody2D>();
-        
+    
     }
     // Start is called before the first frame update
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
@@ -33,8 +34,9 @@ public class Enemy : MonoBehaviour
         m_rigidbody.velocity = new Vector2(speed, 0f);
     }
 
-    private void OnWallBumpEventListener()
+    public void OnWallBumpEventListener()
     {
+        Debug.Log("a");
         m_rigidbody.velocity = (-1) * m_rigidbody.velocity;
         this.transform.position = new Vector3(this.transform.position.x,
                                               this.transform.position.y - 1, 0);
