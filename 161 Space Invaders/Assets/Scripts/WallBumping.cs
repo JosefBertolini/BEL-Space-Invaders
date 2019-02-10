@@ -22,7 +22,7 @@ public class WallBumping : MonoBehaviour
 
     public void OnCollisionEnter2D(Collision2D collision)
     {
-        if (!wasBumped)
+        if (!wasBumped && collision.collider.CompareTag("Enemy"))
         {
             OnWallBumpEvent.Invoke();
             wasBumped = true;
