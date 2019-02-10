@@ -11,6 +11,10 @@ public class GameManager : MonoBehaviour
     public UnityEvent WallBumpingEvent = new UnityEvent();
     public List<List<GameObject>> alienGrid = new List<List<GameObject>>();
 
+    [SerializeField] protected float maxTimeToShoot;
+    private float timeElapsed = 0;
+    private List<int> checkedColumns = new List<int>();
+
     // Start is called before the first frame update
     void Start()
     {
