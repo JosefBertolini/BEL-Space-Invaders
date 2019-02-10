@@ -34,7 +34,7 @@ public class EnemySpawner : MonoBehaviour
             alien_grid.Add(new List<GameObject>());
             for (int y = 0; y < 5; y++)
             {
-                Vector3 spawnLocation = new Vector3(((1.5f*x)-5), ((1.5f*y)-2), 0);
+                Vector3 spawnLocation = new Vector3(((1.5f*x)-7), ((1.5f*y)-2), 0);
                 GameObject newEnemyObject = Instantiate(enemyPrefab, this.transform);
                 newEnemyObject.transform.localPosition = spawnLocation;
                 Enemy newEnemyComponent = newEnemyObject.GetComponent<Enemy>();
