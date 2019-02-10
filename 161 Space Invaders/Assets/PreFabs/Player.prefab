@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 2972535615292256664}
   - component: {fileID: 2972535615292256669}
   - component: {fileID: 2972535615292256668}
-  - component: {fileID: 1435969595696456688}
+  - component: {fileID: 1750680696488356015}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -120,7 +120,7 @@ MonoBehaviour:
   speed: 5
   playerProjectile: {fileID: 3496660019896194141, guid: 97c2e7af4675d2f40b1cf463cc1fe7dd,
     type: 3}
---- !u!61 &1435969595696456688
+--- !u!61 &1750680696488356015
 BoxCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -137,12 +137,12 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 2.89779, y: 1}
+    oldSize: {x: 3, y: 1}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 2.89779, y: 1}
+  m_Size: {x: 3, y: 1}
   m_EdgeRadius: 0
