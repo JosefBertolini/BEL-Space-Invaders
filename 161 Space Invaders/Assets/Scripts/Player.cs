@@ -36,9 +36,10 @@ public class Player : MonoBehaviour
 
         Move();
 
-        if ((Input.GetKeyDown(KeyCode.Mouse0) || Input.GetKeyDown(KeyCode.Space)) && canFire)
+        if (canFire && Time.timeScale != 0)
         {
-            Shoot();
+            if (Input.GetKeyDown(KeyCode.Mouse0) || Input.GetKeyDown(KeyCode.Space))
+                Shoot();
         }
     }
 
@@ -51,14 +52,10 @@ public class Player : MonoBehaviour
 
     void Shoot()
     {
-        if (Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.Mouse0))
-        {
-            canFire = false;
-            projectilePlacement = this.transform.position + new Vector3(0, 0.5f, 0);
-            GameObject newBullet = Instantiate(playerProjectile, projectilePlacement, Quaternion.identity);
-            Physics2D.IgnoreCollision(m_collider, newBullet.GetComponent<Collider2D>());
-
-        }
+        canFire = false;
+        projectilePlacement = this.transform.position + new Vector3(0, 0.5f, 0);
+        GameObject newBullet = Instantiate(playerProjectile, projectilePlacement, Quaternion.identity);
+        Physics2D.IgnoreCollision(m_collider, newBullet.GetComponent<Collider2D>());
     }
 
     void OnTriggerEnter2D(Collider2D collider)
