@@ -20,7 +20,7 @@ public class GameManager : MonoBehaviour
         
     }
 
-    public void EndGame()
+    public void PlayerDead()
     {
         Time.timeScale = 0;
         gameOverOverlay.SetActive(true);

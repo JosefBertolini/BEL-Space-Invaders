@@ -77,6 +77,6 @@ public class Player : MonoBehaviour
 
     void Death()
     {
-        m_gameManager.EndGame();
+        m_gameManager.PlayerDead();
     }
 }
