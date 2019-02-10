@@ -12,10 +12,13 @@ public class Player : MonoBehaviour
     [SerializeField] protected float speed = 5;
     private Rigidbody2D m_rigidbody;
     private Collider2D m_collider;
+    private Transform m_transform;
+    private Vector2 projectilePlacement;
 
     public delegate void IntDelegate(int lives);
     public event IntDelegate takeDamage = delegate { };
 
+    public GameObject playerProjectile;
     GameManager m_gameManager;
 
     // Start is called before the first frame update
@@ -24,6 +27,7 @@ public class Player : MonoBehaviour
         m_rigidbody = this.GetComponent<Rigidbody2D>();
         m_collider = this.GetComponent<Collider2D>();
         m_gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
+        m_transform = this.GetComponent<Transform>();
     }
 
     // Update is called once per frame
@@ -46,7 +50,14 @@ public class Player : MonoBehaviour
 
     void Shoot()
     {
+        if (Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.Mouse0))
+        {
+            canFire = false;
+            projectilePlacement = this.transform.position + new Vector3(0, 0.5f, 0);
+            GameObject newBullet = Instantiate(playerProjectile, projectilePlacement, Quaternion.identity);
+            Physics2D.IgnoreCollision(m_collider, newBullet.GetComponent<Collider2D>());
 
+        }
     }
 
     void OnTriggerEnter2D(Collider2D collider)

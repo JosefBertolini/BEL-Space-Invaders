@@ -144,4 +144,5 @@ MonoBehaviour:
   lives: 3
   canFire: 1
   speed: 5
-  score: 0
+  playerProjectile: {fileID: 3496660019896194141, guid: 26fd4c47ea71dfd4d8f3781c8b0961c4,
+    type: 3}

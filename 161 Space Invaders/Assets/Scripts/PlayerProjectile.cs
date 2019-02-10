@@ -7,11 +7,13 @@ public class PlayerProjectile : MonoBehaviour
 
     [SerializeField] protected float speed = 9.0f;
     private Rigidbody2D bulletBody;
+    public Player player;
 
     // Start is called before the first frame update
     void Start()
     {
         bulletBody = GetComponent<Rigidbody2D>();
+        player = FindObjectOfType<Player>();
     }
 
     // Update is called once per frame
@@ -25,6 +27,7 @@ public class PlayerProjectile : MonoBehaviour
         // INVOKE EVENT FOR CAN_SHOOT
         if ( ! collision.collider.CompareTag("EnemyProjectile"))
         {
+            player.canFire = true;
             Destroy(this.gameObject);
         }
     }
