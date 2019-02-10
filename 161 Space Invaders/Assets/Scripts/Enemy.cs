@@ -9,7 +9,7 @@ public class Enemy : MonoBehaviour
 
 
 
-    [System.NonSerialized] public float speed = 1.5f;
+    public float speed = 1.5f;
 
     private void Awake()
     {
