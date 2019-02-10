@@ -6,6 +6,7 @@ public class GameManager : MonoBehaviour
 {
 
     public int score = 0;
+    public GameObject gameOverOverlay;
 
     // Start is called before the first frame update
     void Start()
@@ -21,6 +22,7 @@ public class GameManager : MonoBehaviour
 
     public void EndGame()
     {
-
+        Time.timeScale = 0;
+        gameOverOverlay.SetActive(true);
     }
 }

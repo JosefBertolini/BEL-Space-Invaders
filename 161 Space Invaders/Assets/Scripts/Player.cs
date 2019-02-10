@@ -29,6 +29,7 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
         Move();
 
         if ((Input.GetKeyDown(KeyCode.Mouse0) || Input.GetKeyDown(KeyCode.Space)) && canFire)
