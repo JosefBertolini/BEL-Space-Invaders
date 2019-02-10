@@ -38,10 +38,11 @@ public class EnemySpawner : MonoBehaviour
             for (int y = 0; y < 5; y++)
             {
                 GameObject enemyPrefab = prefabDict[y];
-                Vector3 spawnLocation = new Vector3(((1.5f*x)-7), ((1.5f*y)-2), 0);
+                Vector3 spawnLocation = new Vector3(((1.5f*x)-7), ((1.5f*y)-1), 0);
                 GameObject newEnemyObject = Instantiate(enemyPrefab, this.transform);
                 newEnemyObject.transform.localPosition = spawnLocation;
                 Enemy newEnemyComponent = newEnemyObject.GetComponent<Enemy>();
+                newEnemyComponent.Init(x, y);
                 gameManagerComponent.WallBumpingEvent.AddListener(newEnemyComponent.OnWallBumpEventListener);
                 alien_grid[x].Add(newEnemyObject);
             }

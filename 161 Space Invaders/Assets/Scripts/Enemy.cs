@@ -10,24 +10,32 @@ public class Enemy : MonoBehaviour
     private Collider2D m_collider;
     private Vector2 projectilePlacement;
     public GameObject enemyProjectile;
+    public GameObject dummyGameObject;
+    private GameManager gameManager;
 
     public float speed;
+    public int kill_score;
+    private int in_grid_x;
+    private int in_grid_y;
 
     private void Awake()
     {
         m_rigidbody = this.GetComponent<Rigidbody2D>();
         m_collider = this.GetComponent<Collider2D>();
+        gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
     }
-    // Start is called before the first frame update
-    void Start()
-    {
 
-    }
 
     // Update is called once per frame
     void Update()
     {
         Move(); 
+    }
+
+    public void Init(int x, int y)
+    {
+        in_grid_x = x;
+        in_grid_y = y;
     }
 
     private void Move()
@@ -48,5 +56,15 @@ public class Enemy : MonoBehaviour
         projectilePlacement = this.transform.position + new Vector3(0, -0.5f, 0);
         GameObject newBullet = Instantiate(enemyProjectile, projectilePlacement, Quaternion.identity);
         Physics2D.IgnoreCollision(m_collider, newBullet.GetComponent<Collider2D>());
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.CompareTag("PlayerProjectile"))
+        {
+            gameManager.IncreaseScore(kill_score);
+            Destroy(this.gameObject);
+            gameManager.alienGrid[in_grid_x][in_grid_y] = dummyGameObject;
+        }
     }
 }

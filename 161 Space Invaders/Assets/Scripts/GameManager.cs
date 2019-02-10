@@ -3,12 +3,16 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
+
 public class GameManager : MonoBehaviour
 {
 
     public int score = 0;
+    private int kills = 0;
     public GameObject gameOverOverlay;
     public UnityEvent WallBumpingEvent = new UnityEvent();
+    public UnityEvent ScoreIncreasedEvent = new UnityEvent();
+
     public List<List<GameObject>> alienGrid = new List<List<GameObject>>();
 
     [SerializeField] protected float maxTimeToShoot;
@@ -51,9 +55,9 @@ public class GameManager : MonoBehaviour
 
             for (int y = 0; y < 5; y++)
             {
-                if (alienGrid[index][y].CompareTag("Enemy"))
+                if (alienGrid[columnsToCheck[index]][y].CompareTag("Enemy"))
                 {
-                    Enemy foundEnemy = alienGrid[index][y].GetComponent<Enemy>();
+                    Enemy foundEnemy = alienGrid[columnsToCheck[index]][y].GetComponent<Enemy>();
                     foundEnemy.Shoot();
                     return;
                 }
@@ -61,5 +65,11 @@ public class GameManager : MonoBehaviour
 
             columnsToCheck.RemoveAt(index);
         }
+    }
+
+    public void IncreaseScore(int score_to_add)
+    {
+        score += score_to_add;
+        ScoreIncreasedEvent.Invoke();
     }
 }
