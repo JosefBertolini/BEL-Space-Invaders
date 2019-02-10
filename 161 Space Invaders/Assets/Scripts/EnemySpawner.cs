@@ -6,14 +6,14 @@ public class EnemySpawner : MonoBehaviour
 {
     public GameObject enemyPrefab;
     GameObject parent_object;
-    LevelManager levelManagerComponent;
+    GameManager gameManagerComponent;
     List<List<GameObject>> alien_grid;
 
     private void Awake()
     {
         parent_object = this.transform.parent.gameObject;
-        levelManagerComponent = parent_object.GetComponent<LevelManager>();
-        alien_grid = levelManagerComponent.alienGrid;
+        gameManagerComponent = parent_object.GetComponent<GameManager>();
+        alien_grid = gameManagerComponent.alienGrid;
     }
     // Start is called before the first frame update
     void Start()
@@ -38,7 +38,7 @@ public class EnemySpawner : MonoBehaviour
                 GameObject newEnemyObject = Instantiate(enemyPrefab, this.transform);
                 newEnemyObject.transform.localPosition = spawnLocation;
                 Enemy newEnemyComponent = newEnemyObject.GetComponent<Enemy>();
-                levelManagerComponent.WallBumpingEvent.AddListener(newEnemyComponent.OnWallBumpEventListener);
+                gameManagerComponent.WallBumpingEvent.AddListener(newEnemyComponent.OnWallBumpEventListener);
                 alien_grid[x].Add(newEnemyObject);
             }
         }

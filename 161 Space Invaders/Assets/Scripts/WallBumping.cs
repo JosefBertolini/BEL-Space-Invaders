@@ -7,12 +7,11 @@ public class WallBumping : MonoBehaviour
 {
     private bool wasBumped = false;
     [System.NonSerialized] public UnityEvent OnWallBumpEvent;
-    LevelManager foo;
 
     // Start is called before the first frame update
     void Start()
     {
-        OnWallBumpEvent = this.transform.parent.gameObject.GetComponent<LevelManager>().WallBumpingEvent;
+        OnWallBumpEvent = this.transform.parent.gameObject.GetComponent<GameManager>().WallBumpingEvent;
     }
 
     // Update is called once per frame
