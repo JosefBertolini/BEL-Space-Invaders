@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class EnemyProjectile : MonoBehaviour
 {
-    [SerializeField] protected float speed = 9.0f;
+    [SerializeField] protected float speed;
     private Rigidbody2D bulletBody;
 
     // Start is called before the first frame update

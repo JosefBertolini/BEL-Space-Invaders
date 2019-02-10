@@ -5,7 +5,7 @@ using UnityEngine;
 public class PlayerProjectile : MonoBehaviour
 {
 
-    [SerializeField] protected float speed = 9.0f;
+    [SerializeField] protected float speed;
     private Rigidbody2D bulletBody;
     public Player player;
 
