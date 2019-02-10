@@ -43,7 +43,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 97a88ad15f7f4824997bab4e2772ed39, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyPrefab: {fileID: 9007505122915658114, guid: 656bb6bb27114e2479b55475c4180f7a,
+  enemyPrefab1: {fileID: 9007505122915658114, guid: 656bb6bb27114e2479b55475c4180f7a,
+    type: 3}
+  enemyPrefab2: {fileID: 2792143420343041173, guid: 191ebb96e5a7ab24fba00ddd718e10dc,
+    type: 3}
+  enemyPrefab3: {fileID: 37940919722925894, guid: a208b4705f97d764e936b6a25fa6b2cb,
     type: 3}
 --- !u!1 &2577128053705685998
 GameObject:
@@ -101,6 +105,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
+  maxTimeToShoot: 0
 --- !u!1001 &67375170
 PrefabInstance:
   m_ObjectHideFlags: 0

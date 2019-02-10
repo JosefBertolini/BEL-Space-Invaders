@@ -20,6 +20,6 @@ public class LivesText : MonoBehaviour
 
     void takeDamageListener(int lives)
     {
-        livesText.text = string.Format("lives: {0}", lives);
+        livesText.text = string.Format("Lives: {0}", lives);
     }
 }

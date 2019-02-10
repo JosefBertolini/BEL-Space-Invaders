@@ -25,4 +25,9 @@ public class GameOver : MonoBehaviour
     {
         gameOverOverlay.SetActive(true);
     }
+
+    public void RestartGame()
+    {
+        Time.timeScale = 1;
+    }
 }
