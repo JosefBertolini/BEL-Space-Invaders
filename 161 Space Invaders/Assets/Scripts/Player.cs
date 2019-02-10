@@ -61,11 +61,11 @@ public class Player : MonoBehaviour
         }
     }
 
-    void OnCollisionEnter2D(Collision2D collision)
+    void OnTriggerEnter2D(Collider2D collider)
     {
-        if (collision.collider.CompareTag("EnemyProjectile"))
+        if (collider.CompareTag("EnemyProjectile"))
         {
-            Destroy(collision.collider.gameObject);
+            Destroy(collider.gameObject);
             lives--;
             takeDamage(lives);
             if (lives == 0)

@@ -22,10 +22,10 @@ public class PlayerProjectile : MonoBehaviour
         bulletBody.velocity = new Vector2(bulletBody.velocity.x, speed);
     }
 
-    private void OnCollisionEnter2D(Collision2D collision)
+    private void OnTriggerEnter2D(Collider2D collider)
     {
         // INVOKE EVENT FOR CAN_SHOOT
-        if ( ! collision.collider.CompareTag("EnemyProjectile"))
+        if ( ! collider.CompareTag("EnemyProjectile"))
         {
             player.canFire = true;
             Destroy(this.gameObject);

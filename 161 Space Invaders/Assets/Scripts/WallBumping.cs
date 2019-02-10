@@ -26,7 +26,6 @@ public class WallBumping : MonoBehaviour
         if (!wasBumped)
         {
             OnWallBumpEvent.Invoke();
-            Debug.Log("This fired");
             wasBumped = true;
         }
     }

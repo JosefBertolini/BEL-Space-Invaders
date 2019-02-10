@@ -36,7 +36,6 @@ public class Enemy : MonoBehaviour
 
     public void OnWallBumpEventListener()
     {
-        Debug.Log("a");
         speed = speed * -1;
         this.transform.position = new Vector3(this.transform.position.x,
                                               this.transform.position.y - 1, 0);
