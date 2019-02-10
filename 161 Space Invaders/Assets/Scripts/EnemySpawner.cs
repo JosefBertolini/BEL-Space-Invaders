@@ -29,17 +29,17 @@ public class EnemySpawner : MonoBehaviour
 
     void SpawnAliens()
     {
-        for (int y = 0; y < 5; y++)
+        for (int x = 0; x < 11; x++)
         {
             alien_grid.Add(new List<GameObject>());
-            for (int x = 0; x < 11; x++)
+            for (int y = 0; y < 5; y++)
             {
-                Vector3 spawnLocation = new Vector3(((2*x)-5), ((2*y)-2), 0);
+                Vector3 spawnLocation = new Vector3(((1.5f*x)-5), ((1.5f*y)-2), 0);
                 GameObject newEnemyObject = Instantiate(enemyPrefab, this.transform);
                 newEnemyObject.transform.localPosition = spawnLocation;
                 Enemy newEnemyComponent = newEnemyObject.GetComponent<Enemy>();
                 levelManagerComponent.WallBumpingEvent.AddListener(newEnemyComponent.OnWallBumpEventListener);
-                alien_grid[y].Add(newEnemyObject);
+                alien_grid[x].Add(newEnemyObject);
             }
         }
     }
