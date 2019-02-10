@@ -269,6 +269,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: WallRight
       objectReference: {fileID: 0}
+    - target: {fileID: 1350446526840945654, guid: 0e9466d76f5133b4799cc6b72e3e6d53,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1350446526840945651, guid: 0e9466d76f5133b4799cc6b72e3e6d53,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -382,6 +387,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: WallLeft
+      objectReference: {fileID: 0}
+    - target: {fileID: 6125483557658471536, guid: 6e8539721c8a0a94091efc0971de8a1b,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6125483557658471539, guid: 6e8539721c8a0a94091efc0971de8a1b,
         type: 3}
