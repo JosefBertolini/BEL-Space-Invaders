@@ -1,6 +1,9 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
+
+public class IntUnityEvent : UnityEvent<int> { }
 
 public class Player : MonoBehaviour
 {
@@ -9,14 +12,18 @@ public class Player : MonoBehaviour
     [SerializeField] protected float speed = 5;
     private Rigidbody2D m_rigidbody;
     private Collider2D m_collider;
-    public int score = 0;
 
+    public delegate void IntDelegate(int lives);
+    public event IntDelegate takeDamage = delegate { };
+
+    GameManager m_gameManager;
 
     // Start is called before the first frame update
     void Start()
     {
         m_rigidbody = this.GetComponent<Rigidbody2D>();
         m_collider = this.GetComponent<Collider2D>();
+        m_gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
     }
 
     // Update is called once per frame
@@ -24,9 +31,9 @@ public class Player : MonoBehaviour
     {
         Move();
 
-        if (Input.GetKeyDown(KeyCode.Mouse0) || Input.GetKeyDown(KeyCode.Space))
+        if ((Input.GetKeyDown(KeyCode.Mouse0) || Input.GetKeyDown(KeyCode.Space)) && canFire)
         {
-
+            Shoot();
         }
     }
 
@@ -40,5 +47,24 @@ public class Player : MonoBehaviour
     void Shoot()
     {
 
+    }
+
+    void OnTriggerEnter2D(Collider2D collider)
+    {
+        if (collider.CompareTag("EnemyProjectile"))
+        {
+            Destroy(collider.gameObject);
+            lives--;
+            takeDamage(lives);
+            if (lives == 0)
+            {
+                Death();
+            }
+        }
+    }
+
+    void Death()
+    {
+        m_gameManager.EndGame();
     }
 }
