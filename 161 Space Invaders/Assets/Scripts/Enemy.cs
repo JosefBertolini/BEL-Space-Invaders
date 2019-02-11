@@ -63,8 +63,10 @@ public class Enemy : MonoBehaviour
         if (collision.CompareTag("PlayerProjectile"))
         {
             gameManager.IncreaseScore(kill_score);
+            Vector3 currentPosition = this.transform.position;
             Destroy(this.gameObject);
-            gameManager.alienGrid[in_grid_x][in_grid_y] = dummyGameObject;
+            GameObject newDummyGameObject = Instantiate(dummyGameObject, currentPosition, Quaternion.identity);
+            gameManager.alienGrid[in_grid_x][in_grid_y] = newDummyGameObject;
         }
     }
 }

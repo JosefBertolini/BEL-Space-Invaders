@@ -287,6 +287,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyProjectile: {fileID: 3496660019896194141, guid: c72a9e757c7e14b40ae0a6638c498064,
     type: 3}
-  dummyGameObject: {fileID: 2792143420343041173}
+  dummyGameObject: {fileID: 7159515843783611609, guid: 190d516cd59e3774a9df55fa1aeb328e,
+    type: 3}
   speed: 0.25
   kill_score: 20
