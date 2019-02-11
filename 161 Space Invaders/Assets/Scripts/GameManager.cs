@@ -9,11 +9,13 @@ public class GameManager : MonoBehaviour
 
     public int score = 0;
     private int kills = 0;
-    public GameObject gameOverOverlay;
+    public GameOver gameOverOverlay;
+    public UnityEvent WinnerWinnerChickenDinner = new UnityEvent();
     public UnityEvent WallBumpingEvent = new UnityEvent();
     public UnityEvent ScoreIncreasedEvent = new UnityEvent();
-
+    public IntUnityEvent EnemyWasKilled = new IntUnityEvent();
     public List<List<GameObject>> alienGrid = new List<List<GameObject>>();
+
 
     [SerializeField] protected float maxTimeToShoot;
     private float timeElapsed;
@@ -24,6 +26,7 @@ public class GameManager : MonoBehaviour
     {
         timeElapsed = 0.0f;
         randomTime = Random.Range(0.0f, maxTimeToShoot);
+        EnemyWasKilled.AddListener(EnemyKilledListener);
     }
 
     // Update is called once per frame
@@ -41,7 +44,7 @@ public class GameManager : MonoBehaviour
     public void PlayerDead()
     {
         Time.timeScale = 0;
-        gameOverOverlay.SetActive(true);
+        gameOverOverlay.DisplayGameOver();
     }
 
     void FindShooter()
@@ -65,6 +68,21 @@ public class GameManager : MonoBehaviour
 
             columnsToCheck.RemoveAt(index);
         }
+    }
+
+    private void CheckWin()
+    {
+        if (kills == 55)
+        {
+            WinnerWinnerChickenDinner.Invoke();
+        }
+    }
+
+    private void EnemyKilledListener(int _score)
+    {
+        kills++;
+        IncreaseScore(_score);
+        CheckWin();
     }
 
     public void IncreaseScore(int score_to_add)

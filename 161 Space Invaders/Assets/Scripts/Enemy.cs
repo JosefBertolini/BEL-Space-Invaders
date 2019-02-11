@@ -12,6 +12,7 @@ public class Enemy : MonoBehaviour
     public GameObject enemyProjectile;
     public GameObject dummyGameObject;
     private GameManager gameManager;
+    private IntUnityEvent enemyKilled;
 
     public float speed;
     public int kill_score;
@@ -23,6 +24,7 @@ public class Enemy : MonoBehaviour
         m_rigidbody = this.GetComponent<Rigidbody2D>();
         m_collider = this.GetComponent<Collider2D>();
         gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
+        enemyKilled = gameManager.EnemyWasKilled;
     }
 
 
@@ -62,7 +64,7 @@ public class Enemy : MonoBehaviour
     {
         if (collision.CompareTag("PlayerProjectile"))
         {
-            gameManager.IncreaseScore(kill_score);
+            enemyKilled.Invoke(kill_score);
             Vector3 currentPosition = this.transform.position;
             Destroy(this.gameObject);
             GameObject newDummyGameObject = Instantiate(dummyGameObject, currentPosition, Quaternion.identity);
