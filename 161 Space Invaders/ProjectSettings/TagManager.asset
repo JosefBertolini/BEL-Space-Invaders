@@ -9,6 +9,7 @@ TagManager:
   - EnemyProjectile
   - Wall
   - Dummy
+  - UFO
   layers:
   - Default
   - TransparentFX

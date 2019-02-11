@@ -17,16 +17,20 @@ public class GameManager : MonoBehaviour
     public UnityEvent ScoreIncreasedEvent = new UnityEvent();
     public IntUnityEvent EnemyWasKilled = new IntUnityEvent();
     public List<List<GameObject>> alienGrid = new List<List<GameObject>>();
+    public GameObject Ufo;
 
 
     [SerializeField] protected float maxTimeToShoot;
+    [SerializeField] protected float chanceOfUFO;
     private float timeElapsed;
+    private float UFOtimer;
     private float randomTime;
 
     // Start is called before the first frame update
     void Start()
     {
         timeElapsed = 0.0f;
+        UFOtimer = 0.0f;
         randomTime = Random.Range(0.0f, maxTimeToShoot);
         EnemyWasKilled.AddListener(EnemyKilledListener);
         BottomTouchedEvent.AddListener(BottomTouched);
@@ -37,12 +41,24 @@ public class GameManager : MonoBehaviour
     void Update()
     {
         timeElapsed += Time.deltaTime;
+        UFOtimer += Time.deltaTime;
         if (timeElapsed > randomTime)
         {
             FindShooter();
             randomTime = Random.Range(0.0f, maxTimeToShoot);
             timeElapsed = 0.0f;
         }
+
+        if (UFOtimer > 0.5f)
+        {
+            UFOtimer = 0.0f;
+            float randomUFO = Random.Range(0.0f, 1.0f);
+            if (randomUFO <= chanceOfUFO && !UFO.exists)
+            {
+                Instantiate(Ufo, new Vector3(0, 6, 0), Quaternion.identity);
+            }
+        }
+        
     }
 
     private void BottomTouched()
