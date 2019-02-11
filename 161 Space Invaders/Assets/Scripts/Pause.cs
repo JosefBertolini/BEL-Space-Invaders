@@ -7,13 +7,14 @@ public class Pause : MonoBehaviour
 {
     public GameObject pausePanel;
     bool isPaused = false;
-
+    public GameObject gameOverOverlay;
 
 
 
     void Update()
     {
-        if (!Input.GetKeyDown(KeyCode.Space) && Input.GetKeyDown(KeyCode.Escape))
+        if ((!Input.GetKeyDown(KeyCode.Space) && Input.GetKeyDown(KeyCode.Escape)) && 
+             !gameOverOverlay.GetComponent<GameOver>().returnDead())
         {
             TogglePause();
         }
