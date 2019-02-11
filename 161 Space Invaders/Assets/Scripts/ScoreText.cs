@@ -18,7 +18,7 @@ public class ScoreText : MonoBehaviour
 
     void IncreasedScoreListener()
     {
-        scoreText.text = string.Format("Lives: {0}", gM.score);
+        scoreText.text = string.Format("Score: {0}", gM.score);
     }
 
 }
