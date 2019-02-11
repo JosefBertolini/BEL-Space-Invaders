@@ -17,4 +17,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/GabeScene.unity
     guid: 7b4cef75d016a38479d532a65a9b31b2
+  - enabled: 1
+    path: Assets/Scenes/JoeScene.unity
+    guid: 8b2aa32309a041244922033ac87db047
   m_configObjects: {}

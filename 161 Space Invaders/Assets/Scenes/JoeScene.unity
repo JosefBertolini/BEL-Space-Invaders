@@ -199,6 +199,19 @@ PrefabInstance:
       propertyPath: m_isInputParsingRequired
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 2577128053705685999, guid: 5deb0be687f6fc840bf91b26cca4a7ba,
+        type: 3}
+      propertyPath: maxTimeToShoot
+      value: 1000
+      objectReference: {fileID: 0}
+    - target: {fileID: 796025432, guid: 5deb0be687f6fc840bf91b26cca4a7ba, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 796025432, guid: 5deb0be687f6fc840bf91b26cca4a7ba, type: 3}
+      propertyPath: m_Name
+      value: WinPanel
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5deb0be687f6fc840bf91b26cca4a7ba, type: 3}
 --- !u!1 &1204561663

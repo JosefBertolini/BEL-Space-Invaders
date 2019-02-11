@@ -13,6 +13,7 @@ public class GameManager : MonoBehaviour
     public GameOver playerWonCanvas;
     public UnityEvent WinnerWinnerChickenDinner = new UnityEvent();
     public UnityEvent WallBumpingEvent = new UnityEvent();
+    public UnityEvent BottomTouchedEvent = new UnityEvent();
     public UnityEvent ScoreIncreasedEvent = new UnityEvent();
     public IntUnityEvent EnemyWasKilled = new IntUnityEvent();
     public List<List<GameObject>> alienGrid = new List<List<GameObject>>();
@@ -28,6 +29,8 @@ public class GameManager : MonoBehaviour
         timeElapsed = 0.0f;
         randomTime = Random.Range(0.0f, maxTimeToShoot);
         EnemyWasKilled.AddListener(EnemyKilledListener);
+        BottomTouchedEvent.AddListener(BottomTouched);
+        WinnerWinnerChickenDinner.AddListener(PlayerWon);
     }
 
     // Update is called once per frame
@@ -40,6 +43,11 @@ public class GameManager : MonoBehaviour
             randomTime = Random.Range(0.0f, maxTimeToShoot);
             timeElapsed = 0.0f;
         }
+    }
+
+    private void BottomTouched()
+    {
+        PlayerDead();
     }
 
     public void PlayerDead()
@@ -95,6 +103,6 @@ public class GameManager : MonoBehaviour
     public void PlayerWon()
     {
         Time.timeScale = 0;
-        gameOverOverlay.DisplayWin();
+        playerWonCanvas.DisplayWin();
     }
 }
