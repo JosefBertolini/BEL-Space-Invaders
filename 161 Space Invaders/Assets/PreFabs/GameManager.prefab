@@ -1217,7 +1217,7 @@ MonoBehaviour:
       Culture=neutral, PublicKeyToken=null
   Ufo: {fileID: 1305849710675518325, guid: 5f3d4677673847a4e83db61aa99cc7bd, type: 3}
   decreaseShootTimeScalar: 0.95
-  minTimeToShoot: 1
+  minTimeToShoot: 0.5
   maxTimeToShoot: 4
   chanceOfUFO: 0.05
 --- !u!1001 &67375170
@@ -1286,6 +1286,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2972535615292256668, guid: 3d0d0872a9fcd844a952008a0146b054,
+        type: 3}
+      propertyPath: lives
+      value: 99
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3d0d0872a9fcd844a952008a0146b054, type: 3}

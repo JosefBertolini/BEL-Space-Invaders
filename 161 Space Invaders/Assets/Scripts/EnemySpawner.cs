@@ -32,6 +32,7 @@ public class EnemySpawner : MonoBehaviour
 
     public void SpawnAliens()
     {
+        alien_grid.Clear();
         for (int x = 0; x < 11; x++)
         {
             alien_grid.Add(new List<GameObject>());

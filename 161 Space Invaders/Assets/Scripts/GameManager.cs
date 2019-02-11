@@ -21,8 +21,8 @@ public class GameManager : MonoBehaviour
     public GameObject Ufo;
     public float decreaseShootTimeScalar;
 
-    [SerializeField] protected float minTimeToShoot;
-    [SerializeField] protected float maxTimeToShoot;
+    public float minTimeToShoot;
+    public float maxTimeToShoot;
     [SerializeField] protected float chanceOfUFO;
     private float timeElapsed;
     private float UFOtimer;
@@ -36,7 +36,7 @@ public class GameManager : MonoBehaviour
         timeElapsed = 0.0f;
         UFOtimer = 0.0f;
         gameTimer = 0.0f;
-        randomTime = Random.Range(minTimeToShoot, maxTimeToShoot);
+        randomTime = Random.Range(0.0f, maxTimeToShoot);
         EnemyWasKilled.AddListener(EnemyKilledListener);
         BottomTouchedEvent.AddListener(BottomTouched);
         WinnerWinnerChickenDinner.AddListener(PlayerWon);
@@ -58,7 +58,7 @@ public class GameManager : MonoBehaviour
         if (UFOtimer > 0.5f)
         {
             UFOtimer = 0.0f;
-            float randomUFO = Random.Range(0.0f, 1.0f);
+            float randomUFO = Random.Range(minTimeToShoot, 1.0f);
             if (randomUFO <= chanceOfUFO && !UFO.exists)
             {
                 Instantiate(Ufo, new Vector3(0, 6, 0), Quaternion.identity);
@@ -108,7 +108,7 @@ public class GameManager : MonoBehaviour
 
     private void CheckWin()
     {
-        if (kills == 55)
+        if (kills%55 == 0)
         {
             WinnerWinnerChickenDinner.Invoke();
         }

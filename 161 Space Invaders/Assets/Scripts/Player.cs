@@ -72,6 +72,11 @@ public class Player : MonoBehaviour
         }
     }
 
+    public void oneUpEventListener(int life)
+    {
+        takeDamage(life);
+    }
+
     void Death()
     {
         m_gameManager.PlayerDead();
