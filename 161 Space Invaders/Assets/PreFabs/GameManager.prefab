@@ -1215,7 +1215,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
-  Ufo: {fileID: 1305849710675518325, guid: 7475544f9011d6949b72393f43e1fe5d, type: 3}
+  Ufo: {fileID: 1305849710675518325, guid: 5f3d4677673847a4e83db61aa99cc7bd, type: 3}
   maxTimeToShoot: 4
   chanceOfUFO: 0.05
 --- !u!1001 &67375170
