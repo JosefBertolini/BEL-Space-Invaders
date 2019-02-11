@@ -10,6 +10,7 @@ public class GameManager : MonoBehaviour
     public int score = 0;
     private int kills = 0;
     public GameOver gameOverOverlay;
+    public GameOver playerWonCanvas;
     public UnityEvent WinnerWinnerChickenDinner = new UnityEvent();
     public UnityEvent WallBumpingEvent = new UnityEvent();
     public UnityEvent ScoreIncreasedEvent = new UnityEvent();
@@ -89,5 +90,11 @@ public class GameManager : MonoBehaviour
     {
         score += score_to_add;
         ScoreIncreasedEvent.Invoke();
+    }
+
+    public void PlayerWon()
+    {
+        Time.timeScale = 0;
+        gameOverOverlay.DisplayWin();
     }
 }

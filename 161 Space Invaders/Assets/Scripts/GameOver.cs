@@ -7,11 +7,13 @@ public class GameOver : MonoBehaviour
 {
     public GameObject gameOverOverlay;
     [SerializeField] private bool isDead;
+    [SerializeField] private bool won;
 
     // Start is called before the first frame update
     void Start()
     {
         isDead = false;
+        won = false;
     }
 
     // Update is called once per frame
@@ -26,14 +28,26 @@ public class GameOver : MonoBehaviour
         gameOverOverlay.SetActive(true);
     }
 
+    public void DisplayWin()
+    {
+        won = true;
+        gameOverOverlay.SetActive(true);
+    }
+
     public void RestartGame()
     {
         isDead = false;
+        won = false;
         Time.timeScale = 1;
     }
 
-    public bool returnDead()
+    public bool ReturnDead()
     {
         return isDead;
+    }
+
+    public bool ReturnWon()
+    {
+        return won;
     }
 }
