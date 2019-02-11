@@ -58,7 +58,7 @@ public class GameManager : MonoBehaviour
         if (UFOtimer > 0.5f)
         {
             UFOtimer = 0.0f;
-            float randomUFO = Random.Range(minTimeToShoot, 1.0f);
+            float randomUFO = Random.Range(0.0f, 1.0f);
             if (randomUFO <= chanceOfUFO && !UFO.exists)
             {
                 Instantiate(Ufo, new Vector3(0, 6, 0), Quaternion.identity);

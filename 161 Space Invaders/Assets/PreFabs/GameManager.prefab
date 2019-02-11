@@ -1218,7 +1218,7 @@ MonoBehaviour:
   Ufo: {fileID: 1305849710675518325, guid: 5f3d4677673847a4e83db61aa99cc7bd, type: 3}
   decreaseShootTimeScalar: 0.95
   minTimeToShoot: 0.5
-  maxTimeToShoot: 4
+  maxTimeToShoot: 5
   chanceOfUFO: 0.05
 --- !u!1001 &67375170
 PrefabInstance:
@@ -1286,11 +1286,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2972535615292256668, guid: 3d0d0872a9fcd844a952008a0146b054,
-        type: 3}
-      propertyPath: lives
-      value: 99
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3d0d0872a9fcd844a952008a0146b054, type: 3}
@@ -1542,6 +1537,21 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2577128053705685996}
     m_Modifications:
+    - target: {fileID: 2127901936705291658, guid: f08fa78ea0202a8429e66fded0e252b3,
+        type: 3}
+      propertyPath: m_textInfo.textComponent
+      value: 
+      objectReference: {fileID: 461626998176127104}
+    - target: {fileID: 2127901936705291658, guid: f08fa78ea0202a8429e66fded0e252b3,
+        type: 3}
+      propertyPath: m_havePropertiesChanged
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2127901936705291658, guid: f08fa78ea0202a8429e66fded0e252b3,
+        type: 3}
+      propertyPath: m_isInputParsingRequired
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4047637142348063419, guid: f08fa78ea0202a8429e66fded0e252b3,
         type: 3}
       propertyPath: m_Name
@@ -1747,21 +1757,6 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 6914145648160810435}
-    - target: {fileID: 2127901936705291658, guid: f08fa78ea0202a8429e66fded0e252b3,
-        type: 3}
-      propertyPath: m_textInfo.textComponent
-      value: 
-      objectReference: {fileID: 461626998176127104}
-    - target: {fileID: 2127901936705291658, guid: f08fa78ea0202a8429e66fded0e252b3,
-        type: 3}
-      propertyPath: m_havePropertiesChanged
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2127901936705291658, guid: f08fa78ea0202a8429e66fded0e252b3,
-        type: 3}
-      propertyPath: m_isInputParsingRequired
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 4047637142484090492, guid: f08fa78ea0202a8429e66fded0e252b3,
         type: 3}
       propertyPath: m_textInfo.textComponent
