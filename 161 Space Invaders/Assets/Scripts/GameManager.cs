@@ -9,6 +9,7 @@ public class GameManager : MonoBehaviour
 
     public int score = 0;
     private int kills = 0;
+    [System.NonSerialized] public int currentLevel = 1;
     public GameOver gameOverOverlay;
     public GameOver playerWonCanvas;
     public UnityEvent WinnerWinnerChickenDinner = new UnityEvent();
@@ -18,20 +19,24 @@ public class GameManager : MonoBehaviour
     public IntUnityEvent EnemyWasKilled = new IntUnityEvent();
     public List<List<GameObject>> alienGrid = new List<List<GameObject>>();
     public GameObject Ufo;
+    public float decreaseShootTimeScalar;
 
-
+    [SerializeField] protected float minTimeToShoot;
     [SerializeField] protected float maxTimeToShoot;
     [SerializeField] protected float chanceOfUFO;
     private float timeElapsed;
     private float UFOtimer;
+    private float gameTimer;
     private float randomTime;
+    
 
     // Start is called before the first frame update
     void Start()
     {
         timeElapsed = 0.0f;
         UFOtimer = 0.0f;
-        randomTime = Random.Range(0.0f, maxTimeToShoot);
+        gameTimer = 0.0f;
+        randomTime = Random.Range(minTimeToShoot, maxTimeToShoot);
         EnemyWasKilled.AddListener(EnemyKilledListener);
         BottomTouchedEvent.AddListener(BottomTouched);
         WinnerWinnerChickenDinner.AddListener(PlayerWon);
@@ -42,10 +47,11 @@ public class GameManager : MonoBehaviour
     {
         timeElapsed += Time.deltaTime;
         UFOtimer += Time.deltaTime;
+        gameTimer += Time.deltaTime;
         if (timeElapsed > randomTime)
         {
             FindShooter();
-            randomTime = Random.Range(0.0f, maxTimeToShoot);
+            randomTime = Random.Range(minTimeToShoot, maxTimeToShoot);
             timeElapsed = 0.0f;
         }
 
@@ -58,7 +64,12 @@ public class GameManager : MonoBehaviour
                 Instantiate(Ufo, new Vector3(0, 6, 0), Quaternion.identity);
             }
         }
-        
+        if (gameTimer > 10.0f)
+        {
+            minTimeToShoot *= decreaseShootTimeScalar;
+            maxTimeToShoot *= decreaseShootTimeScalar;
+            gameTimer = 0.0f;
+        }
     }
 
     private void BottomTouched()
