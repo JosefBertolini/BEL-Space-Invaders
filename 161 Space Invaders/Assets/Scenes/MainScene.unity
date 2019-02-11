@@ -281,19 +281,5 @@ PrefabInstance:
       propertyPath: m_isInputParsingRequired
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 721462835, guid: 5deb0be687f6fc840bf91b26cca4a7ba, type: 3}
-      propertyPath: sceneToLoad
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2577128053924191146, guid: 5deb0be687f6fc840bf91b26cca4a7ba,
-        type: 3}
-      propertyPath: sceneToLoad
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6914145648160810435, guid: 5deb0be687f6fc840bf91b26cca4a7ba,
-        type: 3}
-      propertyPath: sceneToLoad
-      value: 1
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5deb0be687f6fc840bf91b26cca4a7ba, type: 3}

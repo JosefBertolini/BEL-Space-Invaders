@@ -30,7 +30,7 @@ public class EnemySpawner : MonoBehaviour
         SpawnAliens();
     }
 
-    void SpawnAliens()
+    public void SpawnAliens()
     {
         for (int x = 0; x < 11; x++)
         {
@@ -39,6 +39,15 @@ public class EnemySpawner : MonoBehaviour
             {
                 GameObject enemyPrefab = prefabDict[y];
                 Vector3 spawnLocation = new Vector3(((1.5f*x)-7), ((1.5f*y)-1), 0);
+                if (gameManagerComponent.currentLevel >= 3 && 
+                    gameManagerComponent.currentLevel < 5)
+                {
+                    spawnLocation.y -= 1;
+                }
+                else if (gameManagerComponent.currentLevel >= 5)
+                {
+                    spawnLocation.y -= 2;
+                }
                 GameObject newEnemyObject = Instantiate(enemyPrefab, this.transform);
                 newEnemyObject.transform.localPosition = spawnLocation;
                 Enemy newEnemyComponent = newEnemyObject.GetComponent<Enemy>();
